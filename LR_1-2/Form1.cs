@@ -43,8 +43,12 @@ namespace LR_1_2
                         text = Regex.Replace(text, pattern, replacement);
                     }
 
-                    // Запис зміненого вмісту у той же файл
-                    File.WriteAllText(openFileDialog.FileName, text);
+                    /*Запис зміненого вмісту у той же файл
+                    File.WriteAllText(openFileDialog.FileName, text);*/
+                    
+                    string outputFileName = Path.ChangeExtension(openFileDialog.FileName, ".tmp");
+                    File.WriteAllText(outputFileName, text);
+
                 }
             }
 
